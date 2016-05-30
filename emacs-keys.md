@@ -78,3 +78,23 @@
 
 * SALVAMENTO AUTOMÁTICO
 -----------------------
+	M-x recover-file<Return> Restaura o arquivo do temporário do emacs, temporários contém os dados
+	    			 da alteração do arquivo antes dele ser salvo
+
+* MODE LINE -----------
+        M-x text mode<return>   Altera para modo text-mode
+        M-x auto fill mode<return> Altera para o modo auto-fill-mode
+	C-x f 50      Altera o tamânho da margem do texto
+	M-q   	      Ajusta o texto dentro do limite da margem
+
+* PESQUISANDO
+-------------
+	C-s	 Pesquisa pra frente
+	C-r	 Pesquisa pra tras
+	<Delete> Volta até a primeira ocorrência da palavra
+
+* MÚLTIPLAS JANELAS
+-------------------
+	C-M-v	Move o scroll da outra janela
+	C-x o	Move o cursor para outra janela
+	C-x 4 C-f    Abre o arquivo em uma janela ao lado
