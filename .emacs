@@ -14,6 +14,7 @@
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(default-frame-alist (quote ((fullscreen . fullheight))))
  '(delete-old-versions t)
+ '(inhibit-startup-screen t)
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(kept-new-versions 6)
  '(menu-bar-mode nil)
