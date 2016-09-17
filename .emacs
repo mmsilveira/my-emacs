@@ -1,5 +1,7 @@
 (package-initialize)
 
+(setq tramp-default-method "ssh")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -20,6 +22,7 @@
  '(linum-format "%5d")
  '(menu-bar-mode nil)
  '(tool-bar-mode nil)
+ '(truncate-lines nil)
  '(version-control t))
 
 ;; Melpa
