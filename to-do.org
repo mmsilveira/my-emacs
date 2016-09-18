@@ -1,9 +1,11 @@
 
 
 * Configure emacs
+  
 ** Features
+
 * TODO Code complete
-* TODO Sintax / Highligth
+* DONE Sintax / Highligth
 * TODO Block selection
 * TODO Edit many text select the same time (Ctrl+D => Atom/Sublime)
 * TODO Identation
@@ -11,11 +13,13 @@
 * TODO Row number
 * TODO Ack
 * TODO Fuzzy find file
+* TODO emmet
 
 ** Languagens
-* TODO JavaScript
-* TODO yaml
-* TODO HTML
-* TODO CSS / Less / SASS
-* TODO shellscript
-* TODO Makefile
+
+* DONE JavaScript
+* DONE yaml
+* DONE HTML
+* DONE CSS / Less / SASS
+* DONE shellscript
+* DONE Makefile

@@ -48,3 +48,69 @@
 
 ;;(setenv "GOPATH" "/Users/msilveira/Projects/gopath")
 
+;; Select Text
+(defun xah-select-text-in-quote ()
+  "Select text between the nearest left and right delimiters.
+Delimiters here includes the following chars: \"<>(){}[]“”‘’‹›«»「」『』【】〖〗《》〈〉〔〕（）
+This command does not properly deal with nested brackets.
+URL `http://ergoemacs.org/emacs/modernization_mark-word.html'
+Version 2015-05-16"
+  (interactive)
+  (let (-p1
+        -p2
+        (-skipChars "^\"<>(){}[]“”‘’‹›«»「」『』【】〖〗《》〈〉〔〕（）"))
+    (skip-chars-backward -skipChars)
+    (setq -p1 (point))
+    (skip-chars-forward -skipChars)
+    (setq -p2 (point))
+    (set-mark -p1)))
+
+(defun xah-select-current-line ()
+  "Select current line.
+URL `http://ergoemacs.org/emacs/modernization_mark-word.html'
+Version 2016-07-22"
+  (interactive)
+  (end-of-line)
+  (set-mark (line-beginning-position)))
+
+(defun xah-select-line ()
+  "Select current line. If region is active, extend selection downward by line.
+URL `http://ergoemacs.org/emacs/modernization_mark-word.html'
+Version 2016-07-22"
+  (interactive)
+  (if (region-active-p)
+      (progn
+        (forward-line 1)
+        (end-of-line))
+    (xah-select-current-line)))
+
+
+(defun xah-select-current-block ()
+  "Select the current block of text between blank lines.
+
+URL `http://ergoemacs.org/emacs/modernization_mark-word.html'
+Version 2016-07-22"
+  (interactive)
+  (let (-p1)
+    (progn
+      (if (re-search-backward "\n[ \t]*\n" nil "move")
+          (progn (re-search-forward "\n[ \t]*\n")
+                 (setq -p1 (point)))
+        (setq -p1 (point)))
+      (re-search-forward "\n[ \t]*\n" nil "move"))
+    (set-mark -p1)))
+
+(defun xah-select-block ()
+  "Select the current/next block of text between blank lines.
+If region is active, extend selection downward by block.
+
+URL `http://ergoemacs.org/emacs/modernization_mark-word.html'
+Version 2016-07-22"
+  (interactive)
+  (if (region-active-p)
+      (re-search-forward "\n[ \t]*\n" nil "move")
+    (xah-select-current-block)))
+
+(global-set-key (kbd "M-6") 'xah-select-current-block)
+(global-set-key (kbd "M-7") 'xah-select-line)
+(global-set-key (kbd "M-9") 'xah-select-text-in-quote)
